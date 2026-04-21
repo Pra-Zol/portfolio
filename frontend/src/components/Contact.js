@@ -31,7 +31,7 @@ const contactInfo = [
     icon: <FiLinkedin />,
     label: "LinkedIn",
     value: "Prajwal Khanal",
-    href: "https://www.linkedin.com/in/prajwal-khanal",
+    href: "https://www.linkedin.com/in/prajwal-khanal-a4b000262",
   },
   {
     icon: <FiGithub />,

@@ -158,7 +158,7 @@ export default function Hero() {
               <FiGithub />
             </a>
             <a
-              href="https://www.linkedin.com/in/prajwal-khanal"
+              href="https://www.linkedin.com/in/prajwal-khanal-a4b000262"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
