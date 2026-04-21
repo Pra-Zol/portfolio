@@ -1,0 +1,113 @@
+.certs-section { background: var(--bg-primary); }
+
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.certs-grid.visible { opacity: 1; }
+
+.cert-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards;
+}
+.certs-grid.visible .cert-card { opacity: 1; }
+
+.cert-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--cert-color, var(--gold));
+  opacity: 0.7;
+}
+
+.cert-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.2), 0 0 0 1px var(--border-strong);
+}
+
+.cert-icon-wrap {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: rgba(201,168,76,0.08);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cert-color, var(--gold));
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+}
+
+.cert-badge-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cert-category {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  color: var(--cert-color, var(--gold));
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.cert-award-icon {
+  color: var(--gold);
+  font-size: 1.1rem;
+  opacity: 0.5;
+}
+
+.cert-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+.cert-issuer {
+  font-size: 0.82rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.cert-desc {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.cert-line {
+  height: 1px;
+  background: linear-gradient(90deg, var(--cert-color, var(--gold)), transparent);
+  opacity: 0.2;
+  margin-top: 4px;
+}
+
+@media (max-width: 900px) {
+  .certs-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 540px) {
+  .certs-grid { grid-template-columns: 1fr; }
+}

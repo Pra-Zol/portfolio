@@ -1,0 +1,226 @@
+.experience-section { background: var(--bg-primary); }
+
+/* Timeline */
+.timeline {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto 48px;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.timeline.visible { opacity: 1; }
+
+/* Vertical line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--gold), var(--gold-dim), transparent);
+}
+
+.timeline-item {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+}
+.timeline.visible .timeline-item { opacity: 1; }
+
+/* Dot */
+.timeline-dot {
+  flex-shrink: 0;
+  width: 58px;
+  display: flex;
+  justify-content: center;
+  padding-top: 22px;
+}
+
+.dot-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 0.95rem;
+  position: relative;
+  z-index: 1;
+  animation: pulse-gold 2.5s infinite;
+}
+
+/* Card */
+.timeline-card {
+  flex: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  transition: all 0.3s ease;
+}
+.timeline-card:hover {
+  border-color: var(--border-strong);
+  transform: translateX(6px);
+  box-shadow: var(--shadow-gold);
+}
+
+.tc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.tc-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.exp-type-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+}
+
+.type-aged-care {
+  background: rgba(228, 160, 160, 0.12);
+  color: #e4a0a0;
+  border: 1px solid rgba(228, 160, 160, 0.3);
+}
+
+.type-it {
+  background: rgba(201, 168, 76, 0.12);
+  color: var(--gold);
+  border: 1px solid var(--border-strong);
+}
+
+.current-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #68d391;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tc-role {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.tc-company {
+  font-size: 0.95rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.tc-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+}
+
+.tc-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-family: 'Fira Code', monospace;
+  white-space: nowrap;
+}
+
+/* Responsibilities */
+.tc-responsibilities {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tc-responsibilities li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.resp-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+/* Note */
+.exp-note {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px 28px;
+  background: linear-gradient(135deg, rgba(201,168,76,0.06), rgba(201,168,76,0.02));
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.8s ease 0.4s;
+}
+.exp-note.visible { opacity: 1; }
+
+.exp-note-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(201,168,76,0.12);
+  border: 1px solid var(--border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.exp-note h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.exp-note p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.exp-note strong { color: var(--gold); font-weight: 600; }
+
+@media (max-width: 600px) {
+  .timeline::before { left: 18px; }
+  .timeline-dot { width: 44px; }
+  .tc-header { flex-direction: column; }
+  .tc-meta { align-items: flex-start; }
+}

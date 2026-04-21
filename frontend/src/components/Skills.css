@@ -1,0 +1,194 @@
+.skills-section { background: var(--bg-primary); }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 60px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+.skills-grid.visible { opacity: 1; transform: translateY(0); }
+
+.skills-col-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.col-icon { color: var(--gold); font-size: 1.2rem; }
+
+/* Skill Bars */
+.skill-bars { display: flex; flex-direction: column; gap: 20px; }
+
+.skill-bar-item {
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards;
+}
+.skills-grid.visible .skill-bar-item { opacity: 1; }
+
+.skill-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.skill-bar-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.skill-icon {
+  color: var(--gold);
+  font-size: 0.95rem;
+  display: flex;
+}
+
+.skill-bar-percent {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  color: var(--gold);
+}
+
+.skill-bar-track {
+  height: 6px;
+  background: var(--bg-card);
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-light));
+  border-radius: 3px;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.skill-bar-fill::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  box-shadow: 0 0 8px var(--gold);
+}
+
+/* Soft Skills */
+.soft-skills-grid { display: flex; flex-direction: column; gap: 12px; }
+
+.soft-skill-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards;
+}
+.skills-grid.visible .soft-skill-card { opacity: 1; }
+
+.soft-skill-card:hover {
+  border-color: var(--border-strong);
+  transform: translateX(4px);
+  background: var(--bg-card-hover);
+}
+
+.soft-skill-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid var(--border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.soft-skill-card h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+
+.soft-skill-card p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Tech Stack */
+.tech-stack {
+  opacity: 0;
+  transition: all 0.8s ease 0.3s;
+}
+.tech-stack.visible { opacity: 1; }
+
+.tech-stack-title {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.tech-pill {
+  padding: 8px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 40px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  cursor: default;
+  opacity: 0;
+  animation: fadeUp 0.5s ease forwards;
+}
+.tech-stack.visible .tech-pill { opacity: 1; }
+
+.tech-pill:hover {
+  border-color: var(--pill-color, var(--gold));
+  color: var(--pill-color, var(--gold));
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 900px) {
+  .skills-grid { grid-template-columns: 1fr; gap: 3rem; }
+}
